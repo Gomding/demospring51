@@ -4,15 +4,17 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class BookService {
 
     // @Qualifier("주입 받고 싶은 빈의 이름")  하지만 @Primary 가 더 타입 세이프함(추천)
-    @Autowired @Qualifier("parkBookRepository")
-    BookRepository bookRepository;
+    @Autowired
+    List<BookRepository> bookRepositories;
 
     public void printBookRepository() {
-        System.out.println(bookRepository.getClass());
+        this.bookRepositories.forEach(System.out::println);
     }
 
     /*@Autowired(required = false) // 만약 빈 주입을 Optional로 하려면 required 를 추가해서 사용
