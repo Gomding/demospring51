@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 
+import javax.annotation.PostConstruct;
 import java.util.List;
 
 @Service
@@ -13,9 +14,16 @@ public class BookService {
     @Autowired
     BookRepository myBookRepository;
 
-    public void printBookRepository() {
+    @PostConstruct
+    public void setUp() {
         System.out.println(myBookRepository.getClass());
     }
+
+    /*
+    BookService 빈 안에 어떤 BookRepository 빈을 주입받았는지 출력하는 메서드
+    public void printBookRepository() {
+        System.out.println(myBookRepository.getClass());
+    }*/
 
     /*@Autowired(required = false) // 만약 빈 주입을 Optional로 하려면 required 를 추가해서 사용
     public void setBookRepository(BookRepository bookRepository) {
