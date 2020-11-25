@@ -9,6 +9,10 @@ public class BookService {
     @Autowired
     BookRepository bookRepository;
 
+    public void printBookRepository() {
+        System.out.println(bookRepository.getClass());
+    }
+
     /*@Autowired(required = false) // 만약 빈 주입을 Optional로 하려면 required 를 추가해서 사용
     public void setBookRepository(BookRepository bookRepository) {
         this.bookRepository = bookRepository;
