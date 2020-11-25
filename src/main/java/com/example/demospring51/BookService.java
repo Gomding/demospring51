@@ -1,12 +1,14 @@
 package com.example.demospring51;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 
 @Service
 public class BookService {
 
-    @Autowired
+    // @Qualifier("주입 받고 싶은 빈의 이름")  하지만 @Primary 가 더 타입 세이프함(추천)
+    @Autowired @Qualifier("parkBookRepository")
     BookRepository bookRepository;
 
     public void printBookRepository() {
