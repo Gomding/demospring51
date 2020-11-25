@@ -11,10 +11,10 @@ public class BookService {
 
     // @Qualifier("주입 받고 싶은 빈의 이름")  하지만 @Primary 가 더 타입 세이프함(추천)
     @Autowired
-    List<BookRepository> bookRepositories;
+    BookRepository myBookRepository;
 
     public void printBookRepository() {
-        this.bookRepositories.forEach(System.out::println);
+        System.out.println(myBookRepository.getClass());
     }
 
     /*@Autowired(required = false) // 만약 빈 주입을 Optional로 하려면 required 를 추가해서 사용
