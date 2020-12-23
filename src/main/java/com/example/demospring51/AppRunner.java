@@ -12,6 +12,9 @@ public class AppRunner implements ApplicationRunner {
     @Autowired
     ApplicationContext ctx;
 
+    @Autowired
+    Single single;
+
     public void run(ApplicationArguments args) throws Exception {
         System.out.println("proto");
 
@@ -24,5 +27,11 @@ public class AppRunner implements ApplicationRunner {
         System.out.println(ctx.getBean(Single.class));
         System.out.println(ctx.getBean(Single.class));
         System.out.println(ctx.getBean(Single.class));
+
+        System.out.println("proto by single");
+
+        System.out.println(single.getProto());
+        System.out.println(single.getProto());
+        System.out.println(single.getProto());
     }
 }
