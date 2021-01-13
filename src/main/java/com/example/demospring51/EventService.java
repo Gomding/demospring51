@@ -1,13 +1,13 @@
 package com.example.demospring51;
 
+import org.springframework.lang.NonNull;
 import org.springframework.stereotype.Service;
 
 @Service
-public interface EventService {
+public class EventService {
 
-    void createEvent();
-
-    void publishEvent();
-
-    void deleteEvent();
+    @NonNull
+    public String createEvent(@NonNull String name) {
+        return "hello " + name;
+    }
 }
